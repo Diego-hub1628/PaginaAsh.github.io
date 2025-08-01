@@ -163,4 +163,15 @@ body, html {
 .opciones button:hover {
   background-color: #ec407a;
 }
+.mensaje-medio-bajo {
+  position: absolute;
+  top: 70%; /* más abajo que el centro (50%) */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  padding: 10px 20px;
+  text-shadow: 1px 1px 5px black;
+}
 
