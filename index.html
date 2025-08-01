@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Para Ti 💌</title>
+  <link rel="stylesheet" href="estilos.css">
+  <style>
+    #video,
+    .seccion-imagen-texto,
+    .seccion,
+    #seccion-final {
+      display: none;
+    }
+    #modalPregunta {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.7);
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+    .modal-contenido {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      text-align: center;
+    }
+    .opciones button {
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sección de bienvenida -->
+  <div class="bienvenida" id="inicio">
+    <img src="bienvenida.jpeg" alt="Bienvenida" class="imagen-bienvenida">
+    <button class="boton-central" onclick="mostrarSeccion('video')">
+      Foto que dió comienzo a esta gran aventura 💖
+    </button>
+  </div>
+
+  <!-- Sección de video -->
+  <div class="video-container" id="video">
+    <video class="video-fondo" autoplay muted loop playsinline>
+      <source src="video1.mp4" type="video/mp4">
+    </video>
+    <div class="boton esquina-izquierda" onclick="mostrarSeccion('inicio')">💭 Recordar</div>
+    <div class="boton esquina-derecha" onclick="mostrarSeccion('seccion2')">📖 Además de</div>
+    <div class="mensaje">
+      Contigo aprendí que el amor es mucho más que palabras y acciones 💖
+    </div>
+  </div>
+
+  <!-- Secciones 2 a 8 (personalizadas por ti) -->
+  <div class="seccion-imagen-texto" id="seccion2">
+    <img src="foto2.jpeg" class="imagen-fondo">
+    <div class="mensaje-encima">Es comprender, perdonar, admitir, crecer, escuchar, cuidar, quedarse, y muchos detalles más... 🌙</div>
+    <div class="boton esquina-izquierda" onclick="mostrarSeccion('video')">💭 Recordar</div>
+    <div class="boton esquina-derecha" onclick="mostrarSeccion('seccion3')">📖 Profundizar</div>
+  </div>
+
+  <div class="seccion-imagen-texto" id="seccion3">
+    <img src="foto3.jpeg" class="imagen-fondo">
+    <div class="mensaje-encima">...que contigo aprendí. 🌅</div>
+    <div class="boton esquina-izquierda" onclick="mostrarSeccion('seccion2')">💭 Recordar</div>
+    <div class="boton esquina-derecha" onclick="mostrarSeccion('seccion4')">📖 Continuando</div>
+  </div>
+
+  <div class="video-container" id="seccion4">
+    <video class="video-fondo" autoplay muted loop playsinline>
+      <source src="video2.mp4" type="video/mp4">
+    </video>
+    <div class="mensaje-encima">Es tan extraño conocer a una persona y sentir que tienes décadas con ella... (no me mates jiji)</div>
+    <div class="boton esquina-izquierda" onclick="mostrarSeccion('seccion3')">💭 Recordar</div>
+    <div class="boton esquina-derecha" onclick="mostrarSeccion('seccion5')">📖 Profundizar</div>
+  </div>
+
+  <div class="seccion-imagen-texto" id="seccion5">
+    <img src="foto5.jpeg" class="imagen-fondo">
+    <div class="mensaje-encima">Lo raro? Lo raro es que no me siento extraño... 🎢</div>
+    <div class="boton esquina-izquierda" onclick="mostrarSeccion('seccion4')">💭 Recordar</div>
+    <div class="boton esquina-derecha" onclick="mostrarSeccion('seccion6')">📖 Sigue, si quieres...</div>
+  </div>
+
+  <div class="seccion-imagen-texto" id="seccion6">
+    <img src="foto6.jpeg" class="imagen-fondo">
+    <div class="mensaje-encima">Pero lo hemos sabido sobrellevar y eso nos mantiene aquí... ✨</div>
+    <div class="boton esquina-izquierda" onclick="mostrarSeccion('seccion5')">💭 Recordar</div>
+    <div class="boton esquina-derecha" onclick="mostrarSeccion('seccion7')">📖 Veo que te está gustando</div>
+  </div>
+
+  <div class="seccion-imagen-texto" id="seccion7">
+    <img src="foto7.jpeg" class="imagen-fondo">
+    <div class="mensaje-encima">Un año juntos... lo que pensamos que no duraría 2 meses.</div>
+    <div class="boton esquina-izquierda" onclick="mostrarSeccion('seccion6')">💭 Recordar</div>
+    <div class="boton esquina-derecha" onclick="mostrarSeccion('seccion8')">📖 Qué loco la verdad</div>
+  </div>
+
+  <div class="seccion-imagen-texto" id="seccion8">
+    <img src="foto8.jpeg" class="imagen-fondo">
+    <div class="mensaje-abajo">Peeeeero, dejando atrás el romantiqueo, ¿qué extrañas de esta foto? 👀</div>
+    <div class="boton esquina-izquierda" onclick="mostrarSeccion('seccion7')">💭 Recordar</div>
+    <div class="boton esquina-derecha" onclick="mostrarSeccion('seccion9')">📖 NO ME MATES</div>
+  </div>
+
+  <div class="video-container" id="seccion9">
+    <video class="video-fondo" autoplay muted loop playsinline>
+      <source src="video3.mp4" type="video/mp4">
+    </video>
+    <div class="mensaje-encima">Pues creo que es el momento de dar el paso... así que debo proceder.</div>
+    <div class="boton esquina-izquierda" onclick="mostrarSeccion('seccion8')">💭 Recordar</div>
+    <div class="boton esquina-derecha" onclick="mostrarPregunta()">📖 YAAA POR FIN</div>
+  </div>
+
+  <!-- Sección final tras el "Sí" -->
+  <div class="seccion-imagen-texto" id="seccion-final">
+    <img src="respuestaSi.jpeg" class="imagen-fondo">
+  </div>
+
+  <!-- Modal de propuesta -->
+  <div id="modalPregunta" class="modal">
+    <div class="modal-contenido">
+      <p>¿Y si dejamos de actuar como novios y lo hacemos oficial? </p>
+      <div class="opciones">
+        <button id="botonSi" onclick="aceptarPropuesta()">Oficial, exclusivo y para siempre.</button>
+        <button id="botonNo" onmouseover="moverBoton()">otro dia mejol</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    function mostrarSeccion(id) {
+      const secciones = [
+        'inicio', 'video',
+        'seccion2', 'seccion3', 'seccion4', 'seccion5', 'seccion6',
+        'seccion7', 'seccion8', 'seccion9', 'seccion-final'
+      ];
+      secciones.forEach(sec => {
+        const el = document.getElementById(sec);
+        if (el) el.style.display = (sec === id) ? 'block' : 'none';
+      });
+    }
+
+    function mostrarPregunta() {
+      document.getElementById("modalPregunta").style.display = "flex";
+    }
+
+    function moverBoton() {
+      const botonNo = document.getElementById("botonNo");
+      const maxX = window.innerWidth - 120;
+      const maxY = window.innerHeight - 60;
+      const randomX = Math.floor(Math.random() * maxX);
+      const randomY = Math.floor(Math.random() * maxY);
+      botonNo.style.position = "absolute";
+      botonNo.style.left = randomX + "px";
+      botonNo.style.top = randomY + "px";
+    }
+
+    function aceptarPropuesta() {
+      document.getElementById("modalPregunta").style.display = "none";
+      mostrarSeccion('seccion-final');
+    }
+  </script>
+
+</body>
+</html>
+
